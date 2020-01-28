@@ -57,7 +57,7 @@ kubectl label ns default istio-injection=enabled
 
 ## Deploy Sample App
 
-[Hipster Shop](GoogleCloudPlatform/microservices-demo) will serve as the sample app to test automatic mTLS and service authorization.
+[Hipster Shop](https://github.com/GoogleCloudPlatform/microservices-demo) will serve as the sample app to test automatic mTLS and service authorization.
 
 Deploy the Hipster Shop sample app:
 
