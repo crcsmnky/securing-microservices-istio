@@ -1,0 +1,15 @@
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: "frontend-jwt-policy"
+spec:
+  targets:
+  - name: frontend
+  peers:
+  - mtls:
+      mode: PERMISSIVE
+  origins:
+  - jwt:
+      issuer: http://keycloak.default:8080/auth/realms/istio
+      jwksUri: http://keycloak.default:8080/auth/realms/istio/protocol/openid-connect/certs
+  principalBinding: USE_ORIGIN
