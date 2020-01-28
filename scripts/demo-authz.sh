@@ -19,6 +19,8 @@ backtotop
 desc "Uh oh. Let's add policy to be able to call currecny from frontend"
 run "cat ../authz-policy/authz-checkout-frontend.yaml"
 run "kubectl apply -f  ../authz-policy/authz-checkout-frontend.yaml"
+backtotop
 
 desc "clean up policy"
+read -s
 run "kubectl delete authorizationpolicy authz-currency -n default"

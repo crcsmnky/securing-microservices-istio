@@ -10,13 +10,14 @@ run "kubectl get meshpolicy default -o yaml"
 
 desc "Let's verify mtls is enabled using the istioctl cli"
 FRONTEND=$(kubectl get pods -l app=frontend -o jsonpath={.items..metadata.name})
-run "istioctl authn tls-check $FRONTEND.default"
+run "istioctl authn tls-check $FRONTEND.default | grep frontend"
+
 
 desc "Let's capture traffic from frontend->productcatalog with tcpdump"
 desc "We'll figure out the IP of the productcatalog pod and watch traffic to/from there"
 run "kubectl get pod"
 
-
+backtotop
 TARGET_POD_IP=$(kubectl get pod -o wide | grep productcatalogservice | awk '{ print $6 }')
 echo "Product Catalog Service IP: $TARGET_POD_IP"
 read -s
