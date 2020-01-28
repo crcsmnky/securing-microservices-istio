@@ -1,0 +1,12 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: authz-currency
+spec:
+  selector:
+    matchLabels:
+      app: currencyservice
+  rules:
+    - from:
+      - source:
+          principals: ["cluster.local/ns/default/sa/checkout"]
