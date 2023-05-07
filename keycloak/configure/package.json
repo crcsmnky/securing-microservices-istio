@@ -15,6 +15,6 @@
   "description": "This script configures the SSO server with default setting for the coolstore demo",
   "homepage": "https://developers.redhat.com",
   "dependencies": {
-    "request": "2.79.0"
+    "request": "2.88.2"
   }
 }
